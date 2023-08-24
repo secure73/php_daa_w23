@@ -19,10 +19,6 @@ $userNumber = $_POST['user_geuss'];
  * 
  */
 
- if($use_id == 120 && $user->isActive == true || $user->isAdmin == true)
- {
-
- }
 if($userNumber == $ourSecretNumber)
 {
     $systemMessage = "Hurra!!!!!";
