@@ -26,6 +26,8 @@
     </form>
 
     <?php
+    
+    //just for test
     $myHtmlElements = "<br><br><hr><span style='background-color:red'>good .!!!! ..... good</span></br>";
     $myFamilyName = "Khorsandfard";
     $myFirstName = "Ali";
