@@ -47,7 +47,7 @@ if($email && $password)
         <button type="submit">login</button>
     </form>
     <br>
-    <?= $inSystemExistedPassword ?>
+    <?= $systemMessage ?>
 </body>
 
 </html>
