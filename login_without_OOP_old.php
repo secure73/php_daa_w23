@@ -1,12 +1,28 @@
 <?php
-require_once('User.php');
+
 $systemMessage = "please type username / password to login";
+$inSystemExistedEmail = "ali@ali.com";
+$inSystemExistedPassword = md5("ali123");
 
-$user = new User(); 
-//wenn sie $user->login nutzen bekommen Sie error while login is ein private function
-//$user->login()
+$email = $_POST['input_user_login'];
+$password = $_POST['input_user_password'];
 
-$systemMessage = $user->loginView($_POST['input_user_login'],$_POST['input_user_password']);
+
+
+/*
+* folgende code bedwuted alle außer fase , 0 , null oder enpty string wie "" ist acceptable
+*/
+if($email && $password)
+{
+    if($email === $inSystemExistedEmail  && md5($password) == $inSystemExistedPassword)
+    {
+        $systemMessage = "Welcome";
+    }
+    else
+    {
+        $systemMessage = "username or password is wrong";
+    }
+}
 
 ?>
 <!DOCTYPE html>
