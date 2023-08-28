@@ -52,9 +52,13 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
                         <a href="index.php" class="nav-item nav-link">Home</a>
-                        <a href="login.php" class="nav-item nav-link">login</a>
                         <a href="dashboard.php" class="nav-item nav-link">dashboard</a>
-                </div>
+                        <?php if(!isset($_SESSION['user'])):?>
+                            <a href="login.php" class="nav-item nav-link">login</a>
+                        <?php else :?>
+                        <a href="logout.php" class="nav-item nav-link">logout</a>
+                        <?php endif ?>
+                    </div>
             </nav>
         </div>
     </div>

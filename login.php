@@ -1,4 +1,16 @@
 <?php
+session_start();
+require_once('src/User.php');
+if(isset($_POST['input_user_login']) && isset($_POST['input_user_password']))
+{
+    $user = new User();
+    if($user->login($_POST['input_user_login'] ,$_POST['input_user_password'] ))
+    {
+        header('location:dashboard.php');
+        die;
+    }
+}
+
 include('src/header.php');
 ?>
 <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -14,6 +26,21 @@ include('src/header.php');
                     <br />
                     <br />
                     <button class="btn btn-primary" type="submit">login</button>
+                </form>
+            </div>
+    <br>
+                <hr/>
+
+            <div class="col-lg-6">
+                <h1>Register to website</h1>
+                <form method="post">
+                    <label>email:</label> <input type="email" name="input_user_login" placeholder="something@dummy.com" required />
+                    <br />
+                    <br />
+                    <label>password:</label><input type="password" name="input_user_password" placeholder="your password" required />
+                    <br />
+                    <br />
+                    <button class="btn btn-primary" type="submit">register</button>
                 </form>
             </div>
         </div>

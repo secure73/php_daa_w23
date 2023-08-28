@@ -3,9 +3,10 @@
 class User {
     // public bedeutet von instance zufriffbar
     //  ? bevor Property Typ bedeutet diese Property kann null sein
-    public   ?string $firstName;
-    public   ?string $lastName;
-    public   string $email;
+    public   int      $id;
+    public   ?string  $firstName;
+    public   ?string  $lastName;
+    public   string   $email;
     // private kann nicht von darausen (instance) zufriffbar
     private  string $password;
 
@@ -18,11 +19,16 @@ class User {
     /**
      * immer!!!! definieren rückgabe type für dein function 
      */
-    private function login(string $email , string $password):bool
+    public function login(string $email , string $password):bool
     {
+        // Klartext   ali123
         $inSystemPassword = '984d8144fa08bfc637d2825463e184fa';
         if($email === "ali@ali.com" && (md5($password) == $inSystemPassword ))
         {
+            $_SESSION['user'] = "ali@ali.com";
+            $_SESSION['user_id'] = 203;
+            $_SESSION['email'] = 'ali@ali.com';
+            $_SESSION['konto_balance'] = 5000;
             return true;
         }
         return false;
