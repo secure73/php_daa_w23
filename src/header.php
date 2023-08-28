@@ -11,7 +11,7 @@
 
 <body class="p-5">
     <nav class="navbar navbar-dark bg-dark">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav inline">
             <li class="nav-item active">
                 <a class="nav-link" href="index.php">Home </span></a>
             </li>
