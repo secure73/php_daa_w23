@@ -2,7 +2,7 @@
 include('src/header.php');
 ?>
 
-<h1>dashboard . confidetioal</h1>
+hi gallery
 
 <?php
 include('src/footer.php');
