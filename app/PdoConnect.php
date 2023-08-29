@@ -70,6 +70,12 @@ class PdoConnection
         return $this->isConnected;
     }
 
+    public function getDatabaseName():string
+    {
+        $db_connection_info = DB_CONNECTIONS[$this->connectionName];
+        return $db_connection_info['database_name'];
+    }
+
     /**
      * If you want To Sect some Custome Error rather than Default SQL Exceptopn for special cases.
      */
