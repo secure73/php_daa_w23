@@ -1,5 +1,6 @@
 <?php
 // #Database##
+define('DEFAULT_CONNECTION_NAME' ,'default');
 $database_connections = [
     'default' => [
         'type' => 'mysql',
