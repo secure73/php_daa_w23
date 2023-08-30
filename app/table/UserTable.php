@@ -38,6 +38,7 @@ class UserTable extends QueryProvider
         return $this->updateQuery($sqlQuery,$array);
     }
 
+
     public function selectByEmail(string $email):array|null
     {
         $sqlQuery = "SELECT * FROM users WHERE email = :email";
@@ -45,8 +46,14 @@ class UserTable extends QueryProvider
         return $this->selectQuery($sqlQuery,$array);
     }
 
-
-
-
+    /**
+     * like method
+     */
+    public function selectByLastName(string $lastName):array|null
+    {
+        $sqlQuery = "SELECT * FROM users WHERE lastName LIKE :lastName";
+        $array =[':lastName'=> $lastName.'%'];
+        return $this->selectQuery($sqlQuery,$array);
+    }
 
 }
