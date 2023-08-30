@@ -4,7 +4,7 @@ if(!isset($_SESSION['user']))
 {
     header('location:login.php');
 }
-include('src/header.php');
+include('template/header.php'); 
 ?>
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container text-center">
@@ -15,10 +15,8 @@ include('src/header.php');
             </div>
         </div>
     </div>
-
-    <?php
-    include('src/footer.php');
-    ?>
+    
+<?php include('template/footer.php');  ?>
         
 
  

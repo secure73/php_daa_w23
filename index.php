@@ -1,6 +1,4 @@
-<?php
-include('src/header.php');
-?>
+<?php include('template/header.php'); ?>
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container text-center">
             <div class="row justify-content-center">
@@ -14,9 +12,7 @@ include('src/header.php');
         </div>
     </div>
 
-    <?php
-    include('src/footer.php');
-    ?>
+    <?php include('template/footer.php');  ?>
         
 
  

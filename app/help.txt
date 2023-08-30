@@ -1,0 +1,8 @@
+folders :
+ app : is place for your application code.
+ app/table: folder to keep classes which are responsible to directly involved to run SQL query 
+ app/model : folder to keep classes are responsible to do extra logic on table, aggregerate tables , 
+ app/controller: classes this folder are responsible for controlling the income from view and pass it to the model also view only call controller
+ resources : is standard name for keeping css , js , images and other view relevant files
+ vendor : is default and standard folder for keeping the code you dont write yourself and ususly get it from composer or other quelle
+
