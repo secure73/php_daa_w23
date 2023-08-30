@@ -52,7 +52,6 @@ class QueryProvider extends PdoConnection
             $result = $this->fetchAll();
         }
         $this->secure();
-
         return $result;
     }
 

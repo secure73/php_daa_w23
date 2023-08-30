@@ -23,10 +23,29 @@ class UserTable extends QueryProvider
         return $this->insertQuery($sqlQuery,$array);
     }
 
-    public function delete()
+    public function delete(int $id):int|null
     {
-        //TODO
+        $sqlQuery = "DELETE FROM users WHERE id = :id";
+        $array=[':id'=>$id];
+        return $this->deleteQuery($sqlQuery,$array);
     }
+
+    public function update():int|null
+    {
+        $sqlQuery = " UPDATE users SET firstName = :firstName, lastName = :lastName , passwd = :passwd  WHERE id = :id";
+        $array = [':firstName'=>$this->firstName,':lastName'=>$this->lastName,':email'=>$this->email , 
+                    ':passwd'=>$this->passwd , ':id'=>$this->id];
+        return $this->updateQuery($sqlQuery,$array);
+    }
+
+    public function selectByEmail(string $email):array|null
+    {
+        $sqlQuery = "SELECT * FROM users WHERE email = :email";
+        $array =[':email'=>$email];
+        return $this->selectQuery($sqlQuery,$array);
+    }
+
+
 
 
 
