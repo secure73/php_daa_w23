@@ -1,25 +1,26 @@
 <?php
 session_start();
-require_once('src/User.php');
+//require_once('src/User.php');
 if(isset($_POST['input_user_login']) && isset($_POST['input_user_password']))
 {
+    /*
     $user = new User();
     if($user->login($_POST['input_user_login'] ,$_POST['input_user_password'] ))
     {
         header('location:dashboard.php');
         die;
     }
+    */
 }
 
 if(isset($_POST['register_email']))
 {
     //Insert Process
     //User instance 
+    /*
     $user = new User();
     $user->create($_POST['register_email'],$_POST['register_password']);
-    //user insert
-    //if successfull show success
-    //else show error
+    */
 
 }
 
