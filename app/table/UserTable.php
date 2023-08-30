@@ -23,5 +23,11 @@ class UserTable extends QueryProvider
         return $this->insertQuery($sqlQuery,$array);
     }
 
+    public function delete()
+    {
+        //TODO
+    }
+
+
 
 }
