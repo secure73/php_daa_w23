@@ -8,7 +8,7 @@ require_once('config.php');
 class PdoConnection
 {
     private bool $isConnected;
-    private ?string $error;
+    public ?string $error;
     private ?int $affectedRows;
     private string|false $lastInsertedId;
     private ?PDOStatement $stsment;
