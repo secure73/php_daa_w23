@@ -39,11 +39,34 @@ class UserTable extends QueryProvider
     }
 
 
-    public function selectByEmail(string $email):array|null
+    public function selectByEmail(string $email):object|null
     {
         $sqlQuery = "SELECT * FROM users WHERE email = :email";
         $array =[':email'=>$email];
-        return $this->selectQuery($sqlQuery,$array);
+        // return type from selectQuery is Associative Array or null
+        $queryResult = $this->selectQuery($sqlQuery,$array);
+        if(is_array($queryResult))
+        {
+            //conver to object
+            $row = $queryResult[0];
+            
+            /*was kommt zurück ist etwas wie dass
+            $array ['id'] = 1;
+            $array['firstName'] = null;
+            $array['lastName'] = null;
+            
+            $array['email'] = 'ali@ali.com';
+            $array['passwd'] = 'lksajlksljd';
+            */
+            foreach($row as $key => $value)
+            {
+                $this->$key = $value;
+            }
+            return $this;
+
+
+        }
+        return null;
     }
 
     /**
