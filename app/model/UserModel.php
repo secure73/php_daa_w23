@@ -1,5 +1,5 @@
 <?php
-require_once('table/UserTable.php');
+require_once('./app/table/UserTable.php');
 
 class UserModel extends UserTable
 {
@@ -9,9 +9,21 @@ class UserModel extends UserTable
     }
 
 
-    public function register()
+    public function register(string $email , string $passwd):false|UserModel
     {
-        
+        $user = $this->getUserByEmail($email);
+        if(!$user)
+        {
+            $this->email = $email;
+            $this->passwd = password_hash($passwd, PASSWORD_ARGON2I);
+            $id = $this->insert();
+            if($id)
+            {
+                $user = $this->getUserByEmail($email);
+                return $user;
+            }
+        }
+        return false;
     }
 
     public function login(string $email , string $passwd):false|UserModel

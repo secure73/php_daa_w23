@@ -1,16 +1,19 @@
 <?php
 session_start();
+require_once('app/controller/LoginController.php');
+$error = "";
 //require_once('src/User.php');
-if(isset($_POST['input_user_login']) && isset($_POST['input_user_password']))
+if(isset($_POST['input_user_login']))
 {
-    /*
-    $user = new User();
-    if($user->login($_POST['input_user_login'] ,$_POST['input_user_password'] ))
+    $loginResult = LoginController::login();
+    if($loginResult)
     {
         header('location:dashboard.php');
-        die;
     }
-    */
+    else
+    {
+        $error = "Login failed";
+    }
 }
 
 if(isset($_POST['register_email']))
@@ -28,6 +31,12 @@ include('template/header.php');
 ?>
 <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container text-center">
+        <?php if($error) :?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Login failure</strong> username or password wrong.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif ?>
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <h1>Login to website</h1>

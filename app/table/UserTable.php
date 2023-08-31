@@ -1,6 +1,6 @@
 <?php
 
-require_once('../vendor/easydb/QueryProvider.php');
+require_once('./vendor/easydb/QueryProvider.php');
 
 class UserTable extends QueryProvider
 {
@@ -47,22 +47,25 @@ class UserTable extends QueryProvider
         $queryResult = $this->selectQuery($sqlQuery,$array);
         if(is_array($queryResult))
         {
-            //conver to object
-            $row = $queryResult[0];
-            
-            /*was kommt zurück ist etwas wie dass
-            $array ['id'] = 1;
-            $array['firstName'] = null;
-            $array['lastName'] = null;
-            
-            $array['email'] = 'ali@ali.com';
-            $array['passwd'] = 'lksajlksljd';
-            */
-            foreach($row as $key => $value)
+            if(isset($queryResult[0]))
             {
-                $this->$key = $value;
+                //conver to object
+                $row = $queryResult[0];
+                
+                /*was kommt zurück ist etwas wie dass
+                $array ['id'] = 1;
+                $array['firstName'] = null;
+                $array['lastName'] = null;
+                
+                $array['email'] = 'ali@ali.com';
+                $array['passwd'] = 'lksajlksljd';
+                */
+                foreach($row as $key => $value)
+                {
+                    $this->$key = $value;
+                }
+                return $this;
             }
-            return $this;
 
 
         }
