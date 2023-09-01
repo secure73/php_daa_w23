@@ -14,13 +14,13 @@ class UserModel extends UserTable
         $found = $this->getUserByEmail($email);
         if(!$found)
         {
-            $this->email = $email;
             $this->passwd = password_hash($passwd, PASSWORD_ARGON2I);
-            $id = $this->insert();
-            if($id)
+            $this->email = $email;
+            $last_inserted_id = $this->insert();
+            if($last_inserted_id)
             {
-                $user = $this->getUserByEmail($email);
-                return $user;
+                $new_registered_user = $this->getUserByEmail($email);
+                return $new_registered_user;
             }
         }
         return false;
