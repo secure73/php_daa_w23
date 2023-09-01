@@ -5,6 +5,7 @@ require_once('./vendor/easydb/QueryProvider.php');
 class UserTable extends QueryProvider
 {
     public int $id;
+    public int $isAdmin;
     public string $email;
     public string $passwd;
     public ?string $firstName;

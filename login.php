@@ -19,6 +19,15 @@ if(isset($_POST['input_user_login']))
 if(isset($_POST['register_email']))
 {
    $result = LoginController::register();
+   //refresh site! auch vermeindet multiple ausführung
+   if($result)
+   {
+    header('location:dashboard.php');
+   }
+   else
+   {
+        $error = "failed to register";
+   }
 }
 
 include('template/header.php');
