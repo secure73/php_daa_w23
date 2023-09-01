@@ -11,8 +11,8 @@ class UserModel extends UserTable
 
     public function register(string $email , string $passwd):false|UserModel
     {
-        $user = $this->getUserByEmail($email);
-        if(!$user)
+        $found = $this->getUserByEmail($email);
+        if(!$found)
         {
             $this->email = $email;
             $this->passwd = password_hash($passwd, PASSWORD_ARGON2I);

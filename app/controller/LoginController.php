@@ -23,9 +23,9 @@ class LoginController
         if(isset($_POST['register_email']) && isset($_POST['register_password']) )
         {
             $user = new UserModel();
-            $user = $user->register($_POST['register_email'],$_POST['register_password']);
+            $user2 = $user->register($_POST['register_email'],$_POST['register_password']);
             $_POST = null;
-            if($user)
+            if($user2)
             {
                 $_SESSION['user'] =serialize($user);
                 return true;

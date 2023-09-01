@@ -14,6 +14,8 @@ class UserTable extends QueryProvider
     {
         //wenn wir extends von Vater class mussen wir dise code schreiben
         parent::__construct();
+        $this->firstName = null;
+        $this->lastName = null;
     }
 
     public function insert(): null|int

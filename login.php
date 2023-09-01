@@ -18,13 +18,7 @@ if(isset($_POST['input_user_login']))
 
 if(isset($_POST['register_email']))
 {
-    //Insert Process
-    //User instance 
-    /*
-    $user = new User();
-    $user->create($_POST['register_email'],$_POST['register_password']);
-    */
-
+   $result = LoginController::register();
 }
 
 include('template/header.php');
