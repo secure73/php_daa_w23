@@ -18,6 +18,10 @@ class UserTable extends QueryProvider
         $this->lastName = null;
     }
 
+    /**
+     * @success return last inserted id
+     * @return null|int last inserted id in success, null in failure
+     */
     public function insert(): null|int
     {
         $sqlQuery = "INSERT INTO users (email, passwd, firstName, lastName) VALUES (:email, :passwd, :firstName, :lastName)";
@@ -25,6 +29,10 @@ class UserTable extends QueryProvider
         return $this->insertQuery($sqlQuery,$array);
     }
 
+    /**
+     * in success return count deleted 
+     * in failure return null
+     */
     public function delete(int $id):int|null
     {
         $sqlQuery = "DELETE FROM users WHERE id = :id";
